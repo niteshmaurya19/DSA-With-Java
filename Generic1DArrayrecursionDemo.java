@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
- class Generic1Darray<T> {
+class Generic1Darray<T> {
     private T[] x;
 
     public Generic1Darray(T... elements) {
