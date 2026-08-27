@@ -6,10 +6,9 @@ public class InsertionIn2DArray {
     int[][] matrix;
     static Scanner sc=new Scanner(System.in);
     public void printMatrix(int[][] matrix){
-        System.out.println("the matrix is:");
         for(int i=0;i<rows;i++){
             for(int j=0;j<cols;j++){
-                System.out.print(matrix[i][j]+" ");
+                System.out.print(matrix[i][j]);
         }
         System.out.println();
     }

@@ -26,7 +26,6 @@ public class Traverse2DArray {
         System.out.println();
     }
 }
-
 public static void main(String[] args) {
     Traverse2DArray arr=new Traverse2DArray();
     arr.Taverse();
