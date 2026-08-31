@@ -13,12 +13,13 @@ public class InsertionSinglyLL {
         }
 
     }
+    int n;
 
     Node head;
 
     public void CreateList(Scanner sc) {
         System.out.println("Enter the Number of Nodes: ");
-        int n = sc.nextInt();
+        n = sc.nextInt();
 
         if (n <= 0) {
             System.out.println("The list is empty");
@@ -62,6 +63,43 @@ public class InsertionSinglyLL {
 
         PrintList();
     }
+    public void InsertAtPosition(Scanner sc) {
+        System.out.println("\nEnter the position/index to insert at (0-based):");
+        int pos = sc.nextInt();
+
+        if (pos < 0) {
+            System.out.println("Invalid position!");
+            return;
+        }
+
+        System.out.println("Enter data to insert:");
+        int val = sc.nextInt();
+        Node newNode = new Node(val);
+
+        if (pos == 0) {
+            newNode.next = head;
+            head = newNode;
+            System.out.println("After Insertion at Position " + pos + ":");
+            PrintList();
+            return;
+        }
+
+        Node current = head;
+        for (int i = 0; i < pos - 1 && current != null; i++) {
+            current = current.next;
+        }
+
+        if (current == null) {
+            System.out.println("Index out of bounds! List is not long enough.");
+            return;
+        }
+
+        newNode.next = current.next;
+        current.next = newNode;
+
+        System.out.println("After Insertion at Position " + pos + ":");
+        PrintList();
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -69,5 +107,6 @@ public class InsertionSinglyLL {
         ins.CreateList(sc);
         ins.PrintList();
         ins.InsertAtFront(sc);
+        ins.InsertAtPosition(sc);
     }
 }
