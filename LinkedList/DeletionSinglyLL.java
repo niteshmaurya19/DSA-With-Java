@@ -47,14 +47,36 @@ public class DeletionSinglyLL {
 
     }
     public void DeleteNode(Scanner sc){
-        Node current=head;
-        System.out.println("\nenter the position/index to delete the node: ");
-        int delete=sc.nextInt();
 
-        if(delete==0){
-            current=current.next;
-            head=current;
+        if (head == null) {
+            System.out.println("List is empty! Nothing to delete.");
+            return;
         }
+
+        System.out.println("\nEnter the element value to delete: ");
+        int delete = sc.nextInt();
+
+        if (head.data == delete) {
+            head = head.next;
+            System.out.println("Deleted " + delete + " from head.");
+            PrintList();
+            return;
+        }
+
+        Node current = head;
+        Node prev = null;
+
+        while (current != null) {
+            if (current.data == delete) {
+                prev.next = current.next;
+                System.out.println("Deleted " + delete + " from the list.");
+                break;
+            } else {
+                prev = current;
+                current = current.next;
+            }
+        }
+
         PrintList();
     }
     public static void main(String[] args) {
@@ -63,5 +85,6 @@ public class DeletionSinglyLL {
         del.CreateList(sc);
         del.PrintList();
         del.DeleteNode(sc);
+        sc.close();
     }
 }
