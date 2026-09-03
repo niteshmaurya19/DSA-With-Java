@@ -51,10 +51,26 @@ public class ReverseElements {
         }
         System.out.println("null");
     }
+    public void ReverseEl(){
+        Node prev=null;
+        Node current=head;
+        Node next=null;
+
+        while(current!=null){
+            next=current.next;
+            current.next=prev;
+            prev=current;
+            current=next;
+        }
+        head=prev;
+        System.out.println("Reverse elements of node: ");
+        PrintList();
+    }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         ReverseElements rev=new ReverseElements();
         rev.CreateList(sc);
         rev.PrintList();
+        rev.ReverseEl();
     }
 }
