@@ -1,6 +1,10 @@
 package List.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class Manipulation {
     List<Integer> list=new ArrayList<>();
@@ -28,8 +32,8 @@ public class Manipulation {
     System.out.println(sax);
 
     //replace the data with index.
-    sax=list.set(2, 99);
-    System.out.println("Bulk elements inserted in List: "+list);
+    // sax=list.set(2, 99);
+    // System.out.println("Bulk elements inserted in List: "+list);
 }
 public void delete(){
     // list.remove(1);
@@ -39,9 +43,33 @@ public void delete(){
     list.removeIf(n-> n>50);
     System.out.println("List after removing elements which greater then 50: "+list);
 }
+public void Iteratror(){
+    // Iterator<Integer> it = list.iterator();
+    // while(it.hasNext()){
+    //     int val= it.next();
+    //     if(val==5){
+    //         it.remove();
+    //     }
+    // }
+    System.out.println("delete 5 with use of iterator: "+list);
+    List<Integer> reverse=new ArrayList<>();
+    ListIterator<Integer> li = list.listIterator(list.size());
+while (li.hasPrevious()){
+    reverse.add(li.previous());
+}
+System.out.println(reverse);
+
+// sorting in natural accending order.
+Collections.sort(list);
+System.out.println(list);
+// reverse the list
+Collections.reverse(list);
+System.out.println(list);
+}
 public static void main(String[] args) {
     Manipulation zax=new Manipulation();
     zax.insert();
-    zax.delete();
+    // zax.delete();
+    zax.Iteratror();
 }
 }
